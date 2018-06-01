@@ -19,4 +19,16 @@ if(isset($_POST['submit'])){
     <input type="text" name="tag" value= "<?php echo (!empty($tag))?$tag:'Введіть тег тіпа h1';?>"><br></br>
     <input type="submit" name="submit"value="відправити">
 </form>
-<?php print_r($res);?>
+<?php if(!empty($res)&& is_array($res)):?>
+<ol>
+    <h3 style="color:brown;">теги <?=$tag?> знайдено такі:</h3>
+    <?php 
+    foreach ($res as  $value):?>
+    
+    <li style="color:green;"> : <?=$value;?></li>    
+    <?php endforeach;?>    
+</ol>
+    
+<?php endif; ?>
+
+    
